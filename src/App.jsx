@@ -386,12 +386,14 @@ const projects = [
 ];
 
 const skills = [
-  { name: 'Figma', w: 0.95 },
-  { name: 'User Research', w: 0.92 },
-  { name: 'Design Systems', w: 0.88 },
-  { name: 'Prototyping', w: 0.9 },
-  { name: 'HTML / CSS', w: 0.85 },
-  { name: 'SEO / AIO', w: 0.8 },
+  { name: 'UX/UI & Interaction Design', w: 0.97 },
+  { name: 'Design Systems', w: 0.95 },
+  { name: 'React / Angular / JS', w: 0.90 },
+  { name: 'Figma & Adobe Creative Suite', w: 0.95 },
+  { name: 'Accessibility (WCAG)', w: 0.88 },
+  { name: 'AI-Driven UX / LLM Interfaces', w: 0.85 },
+  { name: 'SEO / GEO', w: 0.82 },
+  { name: 'Wireframing & Prototyping', w: 0.93 },
 ];
 
 // ─── COMPONENTS ───────────────────────────────────────────────────────────────
@@ -505,18 +507,18 @@ export default function App() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-left reveal">
-          <p className="hero-eyebrow">Creative Technologist · UI/UX Designer · Engineer</p>
+          <p className="hero-eyebrow">UX/UI Designer · Front-End Developer · UX Engineer</p>
           <h1 className="hero-name">
             Crafting<br /><em>Digital</em><br />Experiences
           </h1>
           <p className="hero-desc">
-            I'm Darrough West — a designer focused on creating intuitive and beautiful interfaces that solve real problems and delight users.
+            I'm Darrough West — a UX/UI designer and front-end developer with 15+ years building scalable, user-centered digital experiences. From design systems to AI-driven interfaces, I move seamlessly from concept to production.
           </p>
           <a href="#work" className="hero-cta">View My Work →</a>
         </div>
         <div className="hero-right reveal" style={{ transitionDelay: '.2s' }}>
           <div className="hero-stat">
-            <div className="hero-stat-num">25+</div>
+            <div className="hero-stat-num">15+</div>
             <div className="hero-stat-label">Years of experience</div>
           </div>
           <div className="hero-stat">
@@ -534,7 +536,7 @@ export default function App() {
       {/* MARQUEE */}
       <div className="marquee-wrap" aria-hidden="true">
         <div className="marquee-track">
-          {['Figma', 'User Research', 'Design Systems', 'Prototyping', 'Shopify Liquid', 'SEO', 'AIO', 'iOS Design', 'HTML/CSS', 'Figma', 'User Research', 'Design Systems', 'Prototyping', 'Shopify Liquid', 'SEO', 'AIO', 'iOS Design', 'HTML/CSS'].map((item, i) => (
+          {['Figma', 'Design Systems', 'React', 'Angular', 'Node.js', 'Accessibility', 'AI/LLM UX', 'SEO/GEO', 'HTML/CSS', 'Interaction Design', 'Prototyping', 'Figma', 'Design Systems', 'React', 'Angular', 'Node.js', 'Accessibility', 'AI/LLM UX', 'SEO/GEO', 'HTML/CSS', 'Interaction Design', 'Prototyping'].map((item, i) => (
             <span key={i} className={item === '·' ? 'marquee-dot' : 'marquee-item'}>{i % 1 === 0 && i > 0 ? <><span className="marquee-dot"> · </span>{item}</> : item}</span>
           ))}
         </div>
@@ -575,7 +577,10 @@ export default function App() {
             </div>
             <div className="about-body">
               <p>
-                I'm a Creative Technologist, UI/UX designer, and engineer with over 25 years of experience creating digital experiences that are both beautiful and functional. My approach combines SEO, AIO, user research, iterative design, and close collaboration with development, marketing, and leadership teams.
+                I'm a UX/UI designer and front-end developer with 15+ years of experience designing and building scalable, user-centered digital experiences. Strong background in design systems, interaction design, and modern front-end development — with the ability to move seamlessly from concept to production.
+              </p>
+              <p>
+                Currently leading web development and digital experience at Liberty Hardware in Winston-Salem, NC. Previously at Fidelity Investments, IBM, MullenLowe, and others — building everything from enterprise design systems to AI-driven interfaces and high-traffic consumer products.
               </p>
               <blockquote className="about-quote">
                 "You are where you are today because you stand on somebody's shoulders. And wherever you are heading, you cannot get there by yourself… We exist temporarily through what we take, but we live forever through what we give."
@@ -613,7 +618,7 @@ export default function App() {
           </h2>
         </div>
         <div className="contact-links reveal" style={{ transitionDelay: '.15s' }}>
-          <a href="mailto:your@email.com" className="contact-link">↗ Email me</a>
+          <a href="mailto:darrough@gmail.com" className="contact-link">↗ Email me</a>
           <a href="https://linkedin.com/in/darroughw" target="_blank" rel="noopener" className="contact-link">↗ LinkedIn</a>
           <a href="https://github.com/darroughw" target="_blank" rel="noopener" className="contact-link">↗ GitHub</a>
           <a href="/resume.pdf" className="contact-link">↗ Resume (PDF)</a>
@@ -623,7 +628,7 @@ export default function App() {
       {/* FOOTER */}
       <footer>
         <p>© 2026 Darrough West. Built by hand.</p>
-        <p>Creative Technologist · UI/UX Designer · Engineer</p>
+        <p>UX/UI Designer · Front-End Developer · UX Engineer</p>
       </footer>
     </>
   );
