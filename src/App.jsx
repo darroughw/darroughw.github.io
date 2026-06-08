@@ -216,7 +216,7 @@ export default function App() {
       <div className="contact-section" id="contact">
         <div className="reveal">
           <h2 className="contact-tagline">
-            Let's make something<br /><em>worth remembering.</em>
+            Good Design<br /><em>is honest.</em>
           </h2>
         </div>
         <div className="contact-links reveal" style={{ transitionDelay: '.15s' }}>
