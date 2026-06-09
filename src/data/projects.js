@@ -176,7 +176,7 @@ export const projects = [
     role: 'Lead Design / Development',
     year: '2025',
     tags: ['Web Design', 'Design System', 'UX Research', 'Responsive', 'Liquid', 'AIO', 'SEO'],
-    imgSrc: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80',
+    imgSrc: 'https://www.libertyhardware.com/cdn/shop/articles/277e823822e0d3082fe9ccdff6b7159bdce86e5b_bd57e864-b908-44f7-9385-574225bf6440_3840x.jpg?v=1770153287',
     detail: {
       overview: 'Liberty Hardware — a leading cabinet hardware manufacturer — needed their Shopify storefront rebuilt from the ground up. The existing site buried products in navigation and failed to convert professional buyers.',
       problem: 'Product discovery was broken. The visual system was inconsistent across 4,000+ SKUs. Mobile performance tanked under product filtering. SEO was an afterthought.',
