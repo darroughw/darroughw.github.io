@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import CaseStudy from './components/CaseStudy';
+import Resume from './components/Resume';
 import { projects, skills } from './data/projects';
 
 const MARQUEE_ITEMS = [
@@ -12,6 +13,7 @@ const MARQUEE_ITEMS = [
 
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
+  const [showResume, setShowResume] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [hovered, setHovered] = useState(false);
   const skillsRef = useRef(null);
@@ -72,6 +74,15 @@ export default function App() {
     );
   }
 
+  if (showResume) {
+    return (
+      <>
+        {cursor}
+        <Resume onBack={() => setShowResume(false)} />
+      </>
+    );
+  }
+
   return (
     <>
       {cursor}
@@ -84,6 +95,7 @@ export default function App() {
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="https://github.com/darroughw" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><button className="nav-resume-btn" onClick={() => setShowResume(true)}>Résumé</button></li>
         </ul>
       </nav>
 
