@@ -14,6 +14,7 @@ const MARQUEE_ITEMS = [
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [showResume, setShowResume] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [hovered, setHovered] = useState(false);
   const skillsRef = useRef(null);
@@ -88,14 +89,24 @@ export default function App() {
       {cursor}
 
       {/* NAV */}
-      <nav>
+      <nav className={menuOpen ? 'nav-open' : ''}>
         <a href="#" className="nav-logo">darrough west</a>
-        <ul className="nav-links">
+
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          <span /><span /><span />
+        </button>
+
+        <ul className="nav-links" onClick={() => setMenuOpen(false)}>
           <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="https://github.com/darroughw" target="_blank" rel="noopener">GitHub ↗</a></li>
-          <li><button className="nav-resume-btn" onClick={() => setShowResume(true)}>Résumé</button></li>
+          <li><button className="nav-resume-btn" onClick={() => { setShowResume(true); setMenuOpen(false); }}>Résumé</button></li>
         </ul>
       </nav>
 
