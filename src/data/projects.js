@@ -94,8 +94,83 @@ export const projects = [
     },
   },
   {
-    id: 'liberty',
+    id: 'fidelity-fds',
     num: '003',
+    title: 'Fidelity Design System — iOS Mobile Workstream',
+    desc: 'Led the iOS mobile workstream for a company-wide design system unifying 150+ designers across Fidelity\'s products. Delivered the full Figma component library in 9 months.',
+    role: 'Principal UX Designer — iOS Mobile Lead',
+    tools: 'Figma, iOS / HIG, Design Tokens',
+    year: '2024',
+    tags: ['Design Systems', 'iOS', 'Figma', 'Component Library', 'UX Leadership'],
+    imgSrc: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80',
+    detail: {
+      sections: [
+        {
+          heading: 'Overview',
+          body: [
+            { type: 'paragraph', text: `Fidelity Investments is one of the largest financial services companies in the world, with a design organization of 150+ UX designers and researchers working across dozens of products — mobile apps, web platforms, internal tools, and customer-facing experiences. In 2024, the company made a strategic decision to unify all of those surfaces under a single design system: FDS.` },
+            { type: 'paragraph', text: `I was brought onto the FDS team as a Principal UX Designer and led the iOS mobile workstream — responsible for designing, structuring, and delivering the Figma component library and templates that would serve as the source of truth for every iOS experience at Fidelity. We had nine months to launch version 1.0. We shipped on time.` },
+          ],
+        },
+        {
+          heading: 'The Problem',
+          body: [
+            { type: 'paragraph', text: `Fidelity's design organization had grown organically over years. Individual product teams had built their own component libraries, their own patterns, and their own interpretations of the brand. The result was an ecosystem of inconsistency: similar UI patterns built differently across products, design decisions made in isolation, and no shared language between the teams building iOS, web, and internal tools.` },
+            { type: 'paragraph', text: `For a company where customers interact with their retirement savings, investment accounts, and financial planning tools, inconsistency isn't just a design problem — it's a trust problem. When the experience feels different from one screen to the next, it introduces friction and doubt at exactly the moments that require confidence.` },
+            { type: 'paragraph', text: `The challenge was not just to build a library. It was to build one that 150+ designers would actually adopt and trust — across different product areas, different levels of seniority, and different ways of working.` },
+          ],
+        },
+        {
+          heading: 'My Role: iOS Mobile Workstream Lead',
+          body: [
+            { type: 'subheading', text: 'Defining the iOS component architecture' },
+            { type: 'paragraph', text: `I established which components were needed for v1.0, how they would be structured within Figma, and how they would map to iOS native patterns while staying aligned with Fidelity's brand. This required balancing fidelity to Apple's Human Interface Guidelines with the design language the FDS team was building — knowing when to follow platform conventions and when to establish Fidelity-specific patterns.` },
+            { type: 'subheading', text: 'Building the Figma library' },
+            { type: 'paragraph', text: `I designed and built the iOS component library in Figma from the ground up — variants, auto layout, interactive components, and documentation annotations baked directly into the file. The library was structured to be intuitive for designers who had never used a shared system before, not just designers who understood how to work in Figma at a technical level.` },
+            { type: 'subheading', text: 'Coordinating with the broader FDS team' },
+            { type: 'paragraph', text: `iOS components don't exist in isolation — they needed to align with the token system, the web component library, and the overall FDS design language being developed in parallel. I worked closely with the other workstream leads to ensure visual and behavioral consistency across surfaces without creating bottlenecks.` },
+            { type: 'subheading', text: 'Supporting adoption' },
+            { type: 'paragraph', text: `After launch, the work didn't stop. I participated in the team's ongoing support structure — office hours, Teams channels, and direct designer support — helping iOS-focused product teams understand how to use the library, when to use it as-is, and how to flag gaps for v1.1.` },
+          ],
+        },
+        {
+          heading: 'The Approach',
+          body: [
+            { type: 'subheading', text: 'Starting with inventory, not components' },
+            { type: 'paragraph', text: `Before building anything, I audited the existing iOS design files across Fidelity's product teams to understand what patterns were already in use. The goal was not to start from scratch but to identify what was working, what was inconsistent, and what was missing entirely. This inventory work shaped the component priority list for v1.0 — ensuring we shipped the things designers needed most, not just the things that were easiest to build.` },
+            { type: 'subheading', text: 'Tokens first, components second' },
+            { type: 'paragraph', text: `In close coordination with the tokens workstream, I ensured every iOS component was built on the FDS token system — color, typography, spacing, and elevation values that could be updated globally rather than component by component. This was a deliberate investment in the long-term maintainability of the library and a decision that would pay dividends as FDS evolved past v1.0.` },
+            { type: 'subheading', text: 'Designing for designers' },
+            { type: 'paragraph', text: `A design system is a product. Its users are designers. I treated the Figma library with the same UX rigor I would apply to a consumer product — thinking about how designers would navigate it, how they would understand the component variants, and how much they would need to read before they could use it. Components were named predictably. Variants were structured to match how designers think about states, not how engineers think about props. Documentation was embedded in the file itself, not in a separate wiki that would fall out of date.` },
+            { type: 'subheading', text: 'Phasing scope ruthlessly' },
+            { type: 'paragraph', text: `Nine months is not a lot of time to build a comprehensive iOS component library for one of the world's largest financial institutions. I worked with the team to phase v1.0 scope aggressively — prioritizing the components that would unblock the most product teams and deferring edge cases and lower-frequency patterns to v1.1. Shipping a solid, trusted v1.0 on time was more valuable than shipping a comprehensive v1.0 late.` },
+          ],
+        },
+        {
+          heading: 'Launch & Adoption',
+          body: [
+            { type: 'paragraph', text: `FDS v1.0 launched on schedule, with the iOS library fully delivered alongside the web components and Figma templates. The 150+ person design organization was onboarded through a structured rollout: documentation, live training sessions, dedicated Teams channels for questions, and recurring open office hours where designers could bring real problems and get real answers.` },
+            { type: 'stat', items: [
+              { value: '150+', label: 'Designers onboarded at launch' },
+              { value: '9 mo', label: 'From kickoff to v1.0 ship' },
+            ]},
+            { type: 'paragraph', text: `The qualitative signal from the iOS workstream was strong. Product teams that had previously maintained their own ad hoc component sets adopted the FDS library because it solved a real problem — they no longer had to make foundational decisions from scratch on every project. The shared language created by FDS made design reviews faster, design handoff cleaner, and cross-team collaboration more natural.` },
+            { type: 'paragraph', text: `Perhaps most importantly, the system earned trust. Trust that it would be maintained. Trust that questions would be answered. Trust that when a designer built on FDS, they were building on something stable.` },
+          ],
+        },
+        {
+          heading: 'What This Work Demonstrates',
+          body: [
+            { type: 'paragraph', text: `Design systems are infrastructure. They're unglamorous, they're complex, and their value is most visible in the work they make possible rather than the work themselves. Leading the iOS workstream on FDS required technical depth in Figma and iOS patterns, strategic judgment about scope and prioritization, cross-functional collaboration across a large organization, and a genuine conviction that the designers using the system deserved something that worked as well as the products they were building.` },
+            { type: 'paragraph', text: `Shipping v1.0 in nine months at Fidelity's scale wasn't just a delivery achievement. It was a systems thinking challenge — and one of the most consequential design contributions I've made.` },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'liberty',
+    num: '004',
     title: 'Liberty Hardware Shopify Platform',
     desc: 'Complete redesign for a hardware manufacturer, modernizing their Shopify platform to improve product discovery and streamline the customer journey.',
     role: 'Lead Design / Development',
