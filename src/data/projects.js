@@ -7,7 +7,7 @@ export const projects = [
     role: 'Lead Design / Development',
     year: '2016',
     tags: ['Mobile Design', 'UX Research', 'Prototyping', 'iOS', 'Live Streaming'],
-    imgSrc: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=900&q=80',
+    imgSrc: 'https://images.squarespace-cdn.com/content/v1/510326cbe4b0f6cf898f824d/1628098507485-2AWJRRXWKSYWT7TUQKLA/gym2.jpg',
     detail: {
       overview: `The Miami Children's Health Foundation raises funds for a program that helps children around the world through virtual checkups. Every year they host a local 5K in Miami — but their mission was anything but local. YouFit saw an opportunity: use the same virtual technology that powers the foundation's healthcare model to reimagine what a charity race could be. The result was the first-ever livestream virtual 5K.`,
       problem: `A local 5K can only raise so much. The challenge was figuring out how to dramatically expand participation and donations without diluting the race-day experience that makes people show up and give. Simply letting people log their own miles remotely wasn't enough — we needed remote runners to genuinely feel like they were part of the event in Miami, competing in real time, not just tracking steps on their own.`,
