@@ -315,6 +315,8 @@ section { padding:6rem 3rem; }
   margin:3rem 0 1rem;
 }
 .case-body p { color:var(--muted); line-height:1.85; margin-bottom:1.25rem; }
+.case-body p a { color:var(--accent); text-decoration:underline; }
+.case-body p a:hover { opacity:.75; }
 .case-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin:2rem 0; }
 .case-img {
   width:100%; border-radius:2px; margin:2rem 0;

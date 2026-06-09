@@ -48,7 +48,9 @@ export default function CaseStudy({ project, onBack }) {
 
             {section.body && section.body.map((block, j) => {
               if (block.type === 'paragraph') {
-                return <p key={j}>{block.text}</p>;
+                return block.text.includes('<')
+                  ? <p key={j} dangerouslySetInnerHTML={{ __html: block.text }} />
+                  : <p key={j}>{block.text}</p>;
               }
               if (block.type === 'subheading') {
                 return <h3 key={j} className="case-subheading">{block.text}</h3>;

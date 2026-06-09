@@ -30,7 +30,7 @@ export const projects = [
         {
           heading: 'Overview',
           body: [
-            { type: 'paragraph', text: `Delta's shower door website (DSWD.com) was growing in traffic but quietly failing its users. Visitors were searching for "installation" and "installation and care" at high rates — not because they wanted to buy, but because the site wasn't answering a basic question before they asked it. As a UX researcher and designer embedded in the project, I used behavioral analytics to identify the gap, developed a content strategy to close it, and redesigned the site's core product finder tool based on what users were actually doing — not what we assumed they were doing.` },
+            { type: 'paragraph', text: `Delta's shower door website (<a href="https://www.deltashowerdoors.com" target="_blank" rel="noopener">deltashowerdoors.com</a>) was growing in traffic but quietly failing its users. Visitors were searching for "installation" and "installation and care" at high rates — not because they wanted to buy, but because the site wasn't answering a basic question before they asked it. As a UX researcher and designer embedded in the project, I used behavioral analytics to identify the gap, developed a content strategy to close it, and redesigned the site's core product finder tool based on what users were actually doing — not what we assumed they were doing.` },
           ],
         },
         {
