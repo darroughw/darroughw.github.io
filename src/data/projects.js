@@ -1,23 +1,7 @@
 export const projects = [
   {
-    id: 'youfit',
-    num: '001',
-    title: 'YouFit Livestream Virtual 5K',
-    desc: `Transformed a local Miami charity race into a nationwide live-streamed event — turning every YouFit gym into an official starting line, with treadmill-synced live video that made runners feel like they were truly running in Miami.`,
-    role: 'Lead Design / Development',
-    year: '2016',
-    tags: ['Mobile Design', 'UX Research', 'Prototyping', 'iOS', 'Live Streaming'],
-    imgSrc: '/images/youfit.jpg',
-    detail: {
-      overview: `The Miami Children's Health Foundation raises funds for a program that helps children around the world through virtual checkups. Every year they host a local 5K in Miami — but their mission was anything but local. YouFit saw an opportunity: use the same virtual technology that powers the foundation's healthcare model to reimagine what a charity race could be. The result was the first-ever livestream virtual 5K.`,
-      problem: `A local 5K can only raise so much. The challenge was figuring out how to dramatically expand participation and donations without diluting the race-day experience that makes people show up and give. Simply letting people log their own miles remotely wasn't enough — we needed remote runners to genuinely feel like they were part of the event in Miami, competing in real time, not just tracking steps on their own.`,
-      solution: `On race day, YouFit converted all of its gyms across the country into official starting lines. Official pace runners in Miami wore GoPro cameras and streamed first-person live video of the race course. Each treadmill was equipped with a pace tracker that collected real-time running data and a tablet that displayed the live stream — dynamically synced to match the runner's treadmill speed. Run faster, the video sped up. Slow down, it slowed with you. The same virtual connection technology that lets the Miami Children's Health Foundation reach sick children worldwide was now making a gym treadmill feel like a Miami street.`,
-      outcome: `YouFit spiked participation well beyond what a local race could achieve, bringing in record-breaking donations for the Miami Children's Health Foundation. The first-ever livestream virtual 5K proved that the right UX doesn't just improve an experience — it can fundamentally expand who gets to have it.`,
-    },
-  },
-  {
     id: 'delta',
-    num: '002',
+    num: '001',
     title: 'Delta Shower Doors — Search Behavior & UX Redesign',
     desc: 'Used behavioral analytics to identify critical UX failures on a high-traffic product site, then redesigned the core product finder and content strategy to eliminate user friction.',
     role: 'UX Researcher & Designer',
@@ -95,7 +79,7 @@ export const projects = [
   },
   {
     id: 'fidelity-fds',
-    num: '003',
+    num: '002',
     title: 'Fidelity Design System — iOS Mobile Workstream',
     desc: 'Led the iOS mobile workstream for a company-wide design system unifying 150+ designers across Fidelity\'s products. Delivered the full Figma component library in 9 months.',
     role: 'Principal UX Designer — iOS Mobile Lead',
@@ -170,7 +154,7 @@ export const projects = [
   },
   {
     id: 'liberty',
-    num: '004',
+    num: '003',
     title: 'Liberty Hardware Shopify Platform',
     desc: 'Complete redesign for a hardware manufacturer, modernizing their Shopify platform to improve product discovery and streamline the customer journey.',
     role: 'Lead Design / Development',
@@ -182,6 +166,22 @@ export const projects = [
       problem: 'Product discovery was broken. The visual system was inconsistent across 4,000+ SKUs. Mobile performance tanked under product filtering. SEO was an afterthought.',
       solution: 'Built a comprehensive Shopify Liquid design system with a faceted search architecture, smart product photography guidelines, and an AIO-optimized content structure. Collaborated directly with engineering and marketing teams throughout.',
       outcome: 'Improved product page conversion by 28%. Mobile session duration increased by 41%. Site now ranks on page 1 for 60+ target category terms.',
+    },
+  },
+  {
+    id: 'youfit',
+    num: '004',
+    title: 'YouFit Livestream Virtual 5K',
+    desc: `Transformed a local Miami charity race into a nationwide live-streamed event — turning every YouFit gym into an official starting line, with treadmill-synced live video that made runners feel like they were truly running in Miami.`,
+    role: 'Lead Design / Development',
+    year: '2016',
+    tags: ['Mobile Design', 'UX Research', 'Prototyping', 'iOS', 'Live Streaming'],
+    imgSrc: '/images/youfit.jpg',
+    detail: {
+      overview: `The Miami Children's Health Foundation raises funds for a program that helps children around the world through virtual checkups. Every year they host a local 5K in Miami — but their mission was anything but local. YouFit saw an opportunity: use the same virtual technology that powers the foundation's healthcare model to reimagine what a charity race could be. The result was the first-ever livestream virtual 5K.`,
+      problem: `A local 5K can only raise so much. The challenge was figuring out how to dramatically expand participation and donations without diluting the race-day experience that makes people show up and give. Simply letting people log their own miles remotely wasn't enough — we needed remote runners to genuinely feel like they were part of the event in Miami, competing in real time, not just tracking steps on their own.`,
+      solution: `On race day, YouFit converted all of its gyms across the country into official starting lines. Official pace runners in Miami wore GoPro cameras and streamed first-person live video of the race course. Each treadmill was equipped with a pace tracker that collected real-time running data and a tablet that displayed the live stream — dynamically synced to match the runner's treadmill speed. Run faster, the video sped up. Slow down, it slowed with you. The same virtual connection technology that lets the Miami Children's Health Foundation reach sick children worldwide was now making a gym treadmill feel like a Miami street.`,
+      outcome: `YouFit spiked participation well beyond what a local race could achieve, bringing in record-breaking donations for the Miami Children's Health Foundation. The first-ever livestream virtual 5K proved that the right UX doesn't just improve an experience — it can fundamentally expand who gets to have it.`,
     },
   },
 ];
