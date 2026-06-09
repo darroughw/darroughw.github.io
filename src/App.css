@@ -390,9 +390,23 @@ footer p {
 .reveal.visible { opacity:1; transform:none; }
 
 @media(max-width:768px) {
-  nav { padding:1.25rem 1.5rem; }
+  nav {
+    padding:1rem 1.5rem;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.75rem;
+  }
+  .nav-links {
+    gap:1.25rem;
+    flex-wrap:wrap;
+  }
+  .nav-links a, .nav-resume-btn {
+    font-size:.7rem;
+    letter-spacing:.06em;
+  }
   .hero, .about-grid { grid-template-columns:1fr; }
-  .hero { padding:0 1.5rem 3rem; }
+  .hero { padding:2rem 1.5rem 3rem; }
+  .hero-left { padding-top:8rem; }
   .hero-right { align-items:flex-start; }
   .hero-bg-text { display:none; }
   .work-grid { grid-template-columns:1fr; }
