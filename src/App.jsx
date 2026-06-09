@@ -130,7 +130,7 @@ export default function App() {
             <div className="hero-stat-label">Years of experience</div>
           </div>
           <div className="hero-stat">
-            <div className="hero-stat-num">2</div>
+            <div className="hero-stat-num">{projects.length}</div>
             <div className="hero-stat-label">Featured case studies</div>
           </div>
           <div className="hero-stat">
