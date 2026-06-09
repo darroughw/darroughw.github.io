@@ -15,17 +15,8 @@ export default function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [showResume, setShowResume] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
-  const [hovered, setHovered] = useState(false);
   const skillsRef = useRef(null);
   const skillBarsRef = useRef([]);
-
-  // Cursor
-  useEffect(() => {
-    const move = e => setCursorPos({ x: e.clientX, y: e.clientY });
-    window.addEventListener('mousemove', move);
-    return () => window.removeEventListener('mousemove', move);
-  }, []);
 
   // Reveal on scroll
   useEffect(() => {
@@ -53,40 +44,16 @@ export default function App() {
     return () => obs.disconnect();
   }, [activeProject, showResume]);
 
-  // Hover tracking for cursor
-  useEffect(() => {
-    const addHover = () => setHovered(true);
-    const removeHover = () => setHovered(false);
-    const els = document.querySelectorAll('a, button, .work-card');
-    els.forEach(el => { el.addEventListener('mouseenter', addHover); el.addEventListener('mouseleave', removeHover); });
-    return () => els.forEach(el => { el.removeEventListener('mouseenter', addHover); el.removeEventListener('mouseleave', removeHover); });
-  });
-
-  const cursor = (
-    <div className={`cursor${hovered ? ' hovered' : ''}`} style={{ left: cursorPos.x, top: cursorPos.y }} />
-  );
-
   if (activeProject) {
-    return (
-      <>
-        {cursor}
-        <CaseStudy project={activeProject} onBack={() => setActiveProject(null)} />
-      </>
-    );
+    return <CaseStudy project={activeProject} onBack={() => setActiveProject(null)} />;
   }
 
   if (showResume) {
-    return (
-      <>
-        {cursor}
-        <Resume onBack={() => setShowResume(false)} />
-      </>
-    );
+    return <Resume onBack={() => setShowResume(false)} />;
   }
 
   return (
     <>
-      {cursor}
 
       {/* NAV */}
       <nav className={menuOpen ? 'nav-open' : ''}>

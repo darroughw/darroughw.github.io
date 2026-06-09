@@ -23,25 +23,9 @@ body {
   font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
 
-/* Cursor */
-.cursor {
-  width: 10px; height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: width .2s, height .2s, background .2s, border .2s;
-}
-.cursor.hovered {
-  width: 36px; height: 36px;
-  background: transparent;
-  border: 1.5px solid var(--accent);
-}
 
 /* Noise */
 body::before {
@@ -72,7 +56,7 @@ nav {
 }
 .nav-links a:hover { color:var(--accent); }
 .nav-resume-btn {
-  background:none; border:none; cursor:none;
+  background:none; border:none; cursor:pointer;
   font-family:inherit; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase;
   color:var(--accent); padding:0; transition:opacity .2s;
 }
@@ -82,7 +66,7 @@ nav {
 .nav-hamburger {
   display:none;
   flex-direction:column; justify-content:center; gap:5px;
-  background:none; border:none; cursor:none;
+  background:none; border:none; cursor:pointer;
   padding:.25rem; z-index:110;
 }
 .nav-hamburger span {
@@ -194,7 +178,7 @@ section { padding:6rem 3rem; }
   background:var(--card-bg);
   padding:3rem; display:flex; flex-direction:column;
   gap:1.25rem; position:relative; overflow:hidden;
-  transition:background .25s; cursor:none;
+  transition:background .25s; cursor:pointer;
 }
 .work-card::after {
   content:''; position:absolute; bottom:0; left:0;
@@ -299,7 +283,7 @@ section { padding:6rem 3rem; }
   letter-spacing:.12em; text-transform:uppercase;
   background:var(--ink); color:var(--bg);
   padding:.6rem 1.25rem; text-decoration:none;
-  cursor:none; z-index:200; border:none;
+  cursor:pointer; z-index:200; border:none;
   transition:background .2s;
 }
 .case-back:hover { background:var(--accent); }
