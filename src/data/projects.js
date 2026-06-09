@@ -24,7 +24,7 @@ export const projects = [
     tools: 'Hotjar, Algolia, Shopify',
     year: '2024–2025',
     tags: ['UX Research', 'Behavioral Analytics', 'Content Strategy', 'Interaction Design', 'Shopify'],
-    imgSrc: 'https://www.deltashowerdoors.com/cdn/shop/files/12800_-_Delta_Shower_Door_Website_Banner_-_Knoxville_No_Text.jpg?v=1775154670&width=1800',
+    imgSrc: 'https://www.deltashowerdoors.com/cdn/shop/files/SD3441729ROOM.jpg',
     detail: {
       sections: [
         {
