@@ -271,6 +271,7 @@ section { padding:6rem 3rem; }
   display:flex; align-items:center; gap:.5rem;
 }
 .contact-link:hover { opacity:1; color:var(--accent); }
+.contact-link-btn { background:none; border:none; cursor:pointer; }
 
 /* CASE STUDY */
 .case-study {

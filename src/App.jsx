@@ -213,7 +213,7 @@ export default function App() {
           <a href="mailto:darrough@gmail.com" className="contact-link">↗ Email me</a>
           <a href="https://linkedin.com/in/darroughw" target="_blank" rel="noopener" className="contact-link">↗ LinkedIn</a>
           <a href="https://github.com/darroughw" target="_blank" rel="noopener" className="contact-link">↗ GitHub</a>
-          <a href="/resume.pdf" className="contact-link">↗ Resume (PDF)</a>
+          <button className="contact-link contact-link-btn" onClick={() => setShowResume(true)}>↗ Résumé</button>
         </div>
       </div>
 
