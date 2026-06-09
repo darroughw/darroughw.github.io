@@ -28,17 +28,17 @@ export default function App() {
 
   // Reveal on scroll
   useEffect(() => {
-    if (activeProject) return;
+    if (activeProject || showResume) return;
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     return () => obs.disconnect();
-  }, [activeProject]);
+  }, [activeProject, showResume]);
 
   // Skill bars
   useEffect(() => {
-    if (!skillsRef.current || activeProject) return;
+    if (!skillsRef.current || activeProject || showResume) return;
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -50,7 +50,7 @@ export default function App() {
     }, { threshold: 0.3 });
     obs.observe(skillsRef.current);
     return () => obs.disconnect();
-  }, [activeProject]);
+  }, [activeProject, showResume]);
 
   // Hover tracking for cursor
   useEffect(() => {
