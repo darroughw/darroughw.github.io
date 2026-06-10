@@ -84,7 +84,7 @@ export const projects = [
     desc: 'Led the iOS mobile workstream for a company-wide design system unifying 150+ designers across Fidelity\'s products. Delivered the full Figma component library in 9 months.',
     role: 'Principal UX Designer — iOS Mobile Lead',
     tools: 'Figma, iOS / HIG, Design Tokens',
-    year: '2024',
+    year: '2022-23',
     tags: ['Design Systems', 'iOS', 'Figma', 'Component Library', 'UX Leadership'],
     imgSrc: '/images/fidelity.jpg',
     detail: {
@@ -92,7 +92,7 @@ export const projects = [
         {
           heading: 'Overview',
           body: [
-            { type: 'paragraph', text: `Fidelity Investments is one of the largest financial services companies in the world, with a design organization of 150+ UX designers and researchers working across dozens of products — mobile apps, web platforms, internal tools, and customer-facing experiences. In 2024, the company made a strategic decision to unify all of those surfaces under a single design system: FDS.` },
+            { type: 'paragraph', text: `Fidelity Investments is one of the largest financial services companies in the world, with a design organization of 150+ UX designers and researchers working across dozens of products — mobile apps, web platforms, internal tools, and customer-facing experiences. In 2022, the company made a strategic decision to unify all of those surfaces under a single design system: FDS.` },
             { type: 'paragraph', text: `I was brought onto the FDS team as a Principal UX Designer and led the iOS mobile workstream — responsible for designing, structuring, and delivering the Figma component library and templates that would serve as the source of truth for every iOS experience at Fidelity. We had nine months to launch version 1.0. We shipped on time.` },
           ],
         },
