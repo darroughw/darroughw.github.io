@@ -101,7 +101,7 @@ export const projects = [
           body: [
             { type: 'paragraph', text: `Fidelity's design organization had grown organically over years. Individual product teams had built their own component libraries, their own patterns, and their own interpretations of the brand. The result was an ecosystem of inconsistency: similar UI patterns built differently across products, design decisions made in isolation, and no shared language between the teams building iOS, web, and internal tools.` },
             { type: 'paragraph', text: `For a company where customers interact with their retirement savings, investment accounts, and financial planning tools, inconsistency isn't just a design problem — it's a trust problem. When the experience feels different from one screen to the next, it introduces friction and doubt at exactly the moments that require confidence.` },
-            { type: 'paragraph', text: `The challenge was not just to build a library. It was to build one that 150+ designers would actually adopt and trust — across different product areas, different levels of seniority, and different ways of working.` },
+            { type: 'paragraph', text: `The challenge was not just to build a library. It was to build one that all the designers would actually adopt and trust — across different product areas, different levels of seniority, and different ways of working.` },
           ],
         },
         {
@@ -133,7 +133,7 @@ export const projects = [
         {
           heading: 'Launch & Adoption',
           body: [
-            { type: 'paragraph', text: `FDS v1.0 launched on schedule, with the iOS library fully delivered alongside the web components and Figma templates. The 150+ person design organization was onboarded through a structured rollout: documentation, live training sessions, dedicated Teams channels for questions, and recurring open office hours where designers could bring real problems and get real answers.` },
+            { type: 'paragraph', text: `FDS v1.0 launched on schedule, with the iOS library fully delivered alongside the web and Android components and Figma templates. The 150+ person design organization was onboarded through a structured rollout: documentation, live training sessions, dedicated Teams channels for questions, and recurring open office hours where designers could bring real problems and get real answers.` },
             { type: 'stat', items: [
               { value: '150+', label: 'Designers onboarded at launch' },
               { value: '9 mo', label: 'From kickoff to v1.0 ship' },
