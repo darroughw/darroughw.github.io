@@ -91,21 +91,7 @@ export default function App() {
           </p>
           <a href="#work" className="hero-cta">View My Work →</a>
         </div>
-        <div className="hero-right reveal" style={{ transitionDelay: '.2s' }}>
-          <div className="hero-stat">
-            <div className="hero-stat-num">15+</div>
-            <div className="hero-stat-label">Years of experience</div>
-          </div>
-          <div className="hero-stat">
-            <div className="hero-stat-num">{projects.length}</div>
-            <div className="hero-stat-label">Featured case studies</div>
-          </div>
-          <div className="hero-stat">
-            <div className="hero-stat-num">0</div>
-            <div className="hero-stat-label">Skipped research phases</div>
-          </div>
-        </div>
-        <div className="hero-bg-text" aria-hidden="true">DW</div>
+<div className="hero-bg-text" aria-hidden="true">DW</div>
       </section>
 
       {/* MARQUEE */}
