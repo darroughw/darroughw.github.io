@@ -11,26 +11,52 @@ const MARQUEE_ITEMS = [
   'Accessibility', 'AI/LLM UX', 'SEO/GEO', 'HTML/CSS', 'Interaction Design', 'Prototyping',
 ];
 
+function getRouteFromHash() {
+  const hash = window.location.hash.replace('#/', '');
+  if (hash === 'resume') return { type: 'resume' };
+  if (hash.startsWith('work/')) {
+    const id = hash.replace('work/', '');
+    const project = projects.find(p => p.id === id);
+    if (project) return { type: 'project', project };
+  }
+  return { type: 'home' };
+}
+
 export default function App() {
-  const [activeProject, setActiveProject] = useState(null);
-  const [showResume, setShowResume] = useState(false);
+  const [route, setRoute] = useState(getRouteFromHash);
   const [menuOpen, setMenuOpen] = useState(false);
   const skillsRef = useRef(null);
   const skillBarsRef = useRef([]);
 
+  const isHome = route.type === 'home';
+
+  function navigate(hash) {
+    window.location.hash = hash;
+  }
+
+  function showProject(p) { navigate(`/work/${p.id}`); }
+  function showResume() { navigate('/resume'); }
+  function goHome() { navigate('/'); }
+
+  useEffect(() => {
+    function onHashChange() { setRoute(getRouteFromHash()); }
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
   // Reveal on scroll
   useEffect(() => {
-    if (activeProject || showResume) return;
+    if (!isHome) return;
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     return () => obs.disconnect();
-  }, [activeProject, showResume]);
+  }, [isHome]);
 
   // Skill bars
   useEffect(() => {
-    if (!skillsRef.current || activeProject || showResume) return;
+    if (!skillsRef.current || !isHome) return;
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -42,14 +68,14 @@ export default function App() {
     }, { threshold: 0.3 });
     obs.observe(skillsRef.current);
     return () => obs.disconnect();
-  }, [activeProject, showResume]);
+  }, [isHome]);
 
-  if (activeProject) {
-    return <CaseStudy project={activeProject} onBack={() => setActiveProject(null)} />;
+  if (route.type === 'project') {
+    return <CaseStudy project={route.project} onBack={goHome} />;
   }
 
-  if (showResume) {
-    return <Resume onBack={() => setShowResume(false)} />;
+  if (route.type === 'resume') {
+    return <Resume onBack={goHome} />;
   }
 
   return (
@@ -57,7 +83,7 @@ export default function App() {
 
       {/* NAV */}
       <nav className={menuOpen ? 'nav-open' : ''}>
-        <a href="#" className="nav-logo">darrough west</a>
+        <a href="#/" className="nav-logo">darrough west</a>
 
         <button
           className="nav-hamburger"
@@ -69,11 +95,11 @@ export default function App() {
         </button>
 
         <ul className="nav-links" onClick={() => setMenuOpen(false)}>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#/#work">Work</a></li>
+          <li><a href="#/#about">About</a></li>
+          <li><a href="#/#contact">Contact</a></li>
           <li><a href="https://github.com/darroughw" target="_blank" rel="noopener">GitHub ↗</a></li>
-          <li><button className="nav-resume-btn" onClick={() => { setShowResume(true); setMenuOpen(false); }}>Résumé</button></li>
+          <li><button className="nav-resume-btn" onClick={() => { showResume(); setMenuOpen(false); }}>Résumé</button></li>
         </ul>
       </nav>
 
@@ -89,9 +115,9 @@ export default function App() {
             scalable, user-centered digital experiences. From design systems to AI-driven interfaces,
             I move seamlessly from concept to production.
           </p>
-          <a href="#work" className="hero-cta">View My Work →</a>
+          <a href="#/#work" className="hero-cta">View My Work →</a>
         </div>
-<div className="hero-bg-text" aria-hidden="true">DW</div>
+        <div className="hero-bg-text" aria-hidden="true">DW</div>
       </section>
 
       {/* MARQUEE */}
@@ -114,7 +140,7 @@ export default function App() {
         </div>
         <div className="work-grid reveal" style={{ transitionDelay: '.1s' }}>
           {projects.map(p => (
-            <div className="work-card" key={p.id} onClick={() => setActiveProject(p)}>
+            <div className="work-card" key={p.id} onClick={() => showProject(p)}>
               <span className="work-card-num">{p.num}</span>
               <img src={p.imgSrc} alt={p.title} className="work-card-img" />
               <h3 className="work-card-title">{p.title}</h3>
@@ -199,7 +225,7 @@ export default function App() {
           <a href="mailto:darrough@gmail.com" className="contact-link">↗ Email me</a>
           <a href="https://linkedin.com/in/darroughw" target="_blank" rel="noopener" className="contact-link">↗ LinkedIn</a>
           <a href="https://github.com/darroughw" target="_blank" rel="noopener" className="contact-link">↗ GitHub</a>
-          <button className="contact-link contact-link-btn" onClick={() => setShowResume(true)}>↗ Résumé</button>
+          <button className="contact-link contact-link-btn" onClick={() => showResume()}>↗ Résumé</button>
         </div>
       </div>
 
