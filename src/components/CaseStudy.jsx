@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
-export default function CaseStudy({ project, onBack }) {
+export default function CaseStudy({ project }) {
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, []);
 
   const { detail } = project;
 
   return (
-    <div className="case-study">
-      <button className="case-back" onClick={onBack}>← Back</button>
+    <main className="case-study" id="main">
+      <a className="case-back" href="/">← Back</a>
       <div className="case-hero">
         <img src={project.imgSrc} alt={project.title} className="case-hero-img" />
         <div className="case-hero-content">
@@ -95,6 +95,6 @@ export default function CaseStudy({ project, onBack }) {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }

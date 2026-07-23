@@ -3,10 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Darrough West — UX Designer</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1A1714" />
+
+    <!--seo-start-->
+    <title>Darrough West — UX/UI Designer & Front-End Engineer</title>
+    <meta name="description" content="Darrough West is a UX/UI designer and front-end engineer with 15+ years of experience designing and building digital products, from Figma to production code." />
+    <link rel="canonical" href="https://darroughw.github.io/" />
+    <!--seo-end-->
+
+    <script>
+      (function () {
+        var m = /^#\/work\/([^/]+)\/?$/.exec(location.hash);
+        if (m) { location.replace('/work/' + m[1] + '/' + location.search); return; }
+        if (/^#\/resume\/?$/.test(location.hash)) { location.replace('/resume/' + location.search); }
+      })();
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.jsx"></script>
   </body>
 </html>

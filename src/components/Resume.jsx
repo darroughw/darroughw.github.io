@@ -140,12 +140,12 @@ const highlights = [
   'Outstanding Technical Achievement Award and first patent filed (IBM, 2018-2019)',
 ];
 
-export default function Resume({ onBack }) {
+export default function Resume() {
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, []);
 
   return (
-    <div className="resume-page">
-      <button className="case-back" onClick={onBack}>← Back</button>
+    <main className="resume-page" id="main">
+      <a className="case-back" href="/">← Back</a>
 
       <div className="resume-wrap">
 
@@ -249,6 +249,6 @@ export default function Resume({ onBack }) {
         </section>
 
       </div>
-    </div>
+    </main>
   );
 }

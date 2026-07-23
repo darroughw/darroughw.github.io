@@ -11,38 +11,12 @@ const MARQUEE_ITEMS = [
   'Accessibility', 'AI/LLM UX', 'SEO/GEO', 'HTML/CSS', 'Interaction Design', 'Prototyping',
 ];
 
-function getRouteFromHash() {
-  const hash = window.location.hash.replace('#/', '');
-  if (hash === 'resume') return { type: 'resume' };
-  if (hash.startsWith('work/')) {
-    const id = hash.replace('work/', '');
-    const project = projects.find(p => p.id === id);
-    if (project) return { type: 'project', project };
-  }
-  return { type: 'home' };
-}
-
-export default function App() {
-  const [route, setRoute] = useState(getRouteFromHash);
+export default function App({ route }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const skillsRef = useRef(null);
   const skillBarsRef = useRef([]);
 
   const isHome = route.type === 'home';
-
-  function navigate(hash) {
-    window.location.hash = hash;
-  }
-
-  function showProject(p) { navigate(`/work/${p.id}`); }
-  function showResume() { navigate('/resume'); }
-  function goHome() { navigate('/'); }
-
-  useEffect(() => {
-    function onHashChange() { setRoute(getRouteFromHash()); }
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
 
   // Reveal on scroll
   useEffect(() => {
@@ -71,19 +45,20 @@ export default function App() {
   }, [isHome]);
 
   if (route.type === 'project') {
-    return <CaseStudy project={route.project} onBack={goHome} />;
+    return <CaseStudy project={route.project} />;
   }
 
   if (route.type === 'resume') {
-    return <Resume onBack={goHome} />;
+    return <Resume />;
   }
 
   return (
     <>
+      <a href="#main" className="skip-link">Skip to main content</a>
 
       {/* NAV */}
-      <nav className={menuOpen ? 'nav-open' : ''}>
-        <a href="#/" className="nav-logo">darrough west</a>
+      <nav className={menuOpen ? 'nav-open' : ''} aria-label="Primary">
+        <a href="/" className="nav-logo">darrough west</a>
 
         <button
           className="nav-hamburger"
@@ -95,13 +70,15 @@ export default function App() {
         </button>
 
         <ul className="nav-links" onClick={() => setMenuOpen(false)}>
-          <li><a href="#/#work">Work</a></li>
-          <li><a href="#/#about">About</a></li>
-          <li><a href="#/#contact">Contact</a></li>
-          <li><a href="https://github.com/darroughw" target="_blank" rel="noopener">GitHub ↗</a></li>
-          <li><button className="nav-resume-btn" onClick={() => { showResume(); setMenuOpen(false); }}>Résumé</button></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://github.com/darroughw" target="_blank" rel="noopener">GitHub ↗<span className="sr-only"> (opens in new tab)</span></a></li>
+          <li><a className="nav-resume-btn" href="/resume/">Résumé</a></li>
         </ul>
       </nav>
+
+      <main id="main">
 
       {/* HERO */}
       <section className="hero">
@@ -115,7 +92,7 @@ export default function App() {
             production. Recent work: a Shopify redesign that cut friction-driven site searches 92%
             while traffic grew 6x, and an iOS design system used by 150+ designers at Fidelity.
           </p>
-          <a href="#/#work" className="hero-cta">View My Work →</a>
+          <a href="#work" className="hero-cta">View My Work →</a>
         </div>
         <div className="hero-bg-text" aria-hidden="true">DW</div>
       </section>
@@ -140,7 +117,7 @@ export default function App() {
         </div>
         <div className="work-grid reveal" style={{ transitionDelay: '.1s' }}>
           {projects.map(p => (
-            <div className="work-card" key={p.id} onClick={() => showProject(p)}>
+            <a className="work-card" key={p.id} href={`/work/${p.id}/`}>
               <span className="work-card-num">{p.num}</span>
               <img src={p.imgSrc} alt={p.title} className="work-card-img" />
               <h3 className="work-card-title">{p.title}</h3>
@@ -154,7 +131,7 @@ export default function App() {
                 {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
               </div>
               <span className="work-card-link">View case study →</span>
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -223,11 +200,13 @@ export default function App() {
         </div>
         <div className="contact-links reveal" style={{ transitionDelay: '.15s' }}>
           <a href="mailto:darrough@gmail.com" className="contact-link">↗ Email me</a>
-          <a href="https://linkedin.com/in/darroughw" target="_blank" rel="noopener" className="contact-link">↗ LinkedIn</a>
-          <a href="https://github.com/darroughw" target="_blank" rel="noopener" className="contact-link">↗ GitHub</a>
-          <button className="contact-link contact-link-btn" onClick={() => showResume()}>↗ Résumé</button>
+          <a href="https://linkedin.com/in/darroughw" target="_blank" rel="noopener" className="contact-link">↗ LinkedIn<span className="sr-only"> (opens in new tab)</span></a>
+          <a href="https://github.com/darroughw" target="_blank" rel="noopener" className="contact-link">↗ GitHub<span className="sr-only"> (opens in new tab)</span></a>
+          <a className="contact-link" href="/resume/">↗ Résumé</a>
         </div>
       </div>
+
+      </main>
 
       {/* FOOTER */}
       <footer>
