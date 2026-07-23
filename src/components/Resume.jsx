@@ -13,7 +13,7 @@ const experience = [
           'Define and implement UX patterns, interaction models, and UI standards across digital platforms.',
           'Introduced AI-assisted UX workflows and LLM-driven content experiences.',
           'Improved site usability, accessibility, SEO, and GEO through better content structure and interface design.',
-          'Partner with stakeholders to translate business needs into intuitive digital experiences.',
+          'Partner with business teams to translate requirements into intuitive digital experiences.',
         ],
       },
     ],
@@ -133,11 +133,11 @@ const coreSkills = [
 ];
 
 const highlights = [
-  'Built and scaled enterprise design systems',
-  'Strong UX + engineering hybrid skillset (UX Engineer)',
-  'Delivered AI-enhanced and personalized user experiences',
-  'Improved usability, accessibility, and engagement',
-  'Optimized for SEO, GEO, and modern search experiences',
+  'Cut friction-driven site searches 92% and grew traffic 6x through UX research and content strategy (Liberty Hardware)',
+  'Led the iOS workstream for an enterprise design system adopted by 150+ designers, shipped on schedule in 9 months (Fidelity)',
+  'Increased product page conversion 28% and mobile session duration 41% through a full Shopify platform redesign',
+  'Introduced AI-assisted UX and content workflows now used in daily production work',
+  'Outstanding Technical Achievement Award and first patent filed (IBM, 2018-2019)',
 ];
 
 export default function Resume({ onBack }) {
@@ -169,11 +169,11 @@ export default function Resume({ onBack }) {
         <section className="resume-section">
           <h2 className="resume-section-title">Summary</h2>
           <p className="resume-summary">
-            UX/UI designer and front-end developer with 15+ years of experience designing and building
-            scalable, user-centered digital experiences. Strong background in design systems, interaction
-            design, and modern front-end development, with the ability to move seamlessly from concept to
-            production. Experienced in integrating AI/LLM-driven experiences, optimizing for SEO/GEO, and
-            creating intuitive, accessible interfaces at scale.
+            UX/UI designer and front-end developer with 15+ years designing and building digital
+            products end to end, from Figma to production code. Recent work: a Shopify redesign that
+            cut friction-driven site searches 92% while traffic grew 6x, and an iOS design system
+            used by 150+ designers at Fidelity. Background spans design systems, interaction design,
+            accessibility, and AI-driven interfaces.
           </p>
         </section>
 

@@ -111,9 +111,9 @@ export default function App() {
             Crafting<br /><em>Digital</em><br />Experiences
           </h1>
           <p className="hero-desc">
-            I'm Darrough West — a UX/UI designer and front-end developer with 15+ years building
-            scalable, user-centered digital experiences. From design systems to AI-driven interfaces,
-            I move seamlessly from concept to production.
+            I'm Darrough West. I design and build digital products, 15+ years from concept to
+            production. Recent work: a Shopify redesign that cut friction-driven site searches 92%
+            while traffic grew 6x, and an iOS design system used by 150+ designers at Fidelity.
           </p>
           <a href="#/#work" className="hero-cta">View My Work →</a>
         </div>
@@ -169,16 +169,16 @@ export default function App() {
             </div>
             <div className="about-body">
               <p>
-                I'm a UX/UI designer and front-end developer with 15+ years of experience designing
-                and building scalable, user-centered digital experiences. Strong background in design
-                systems, interaction design, and modern front-end development — with the ability to
-                move seamlessly from concept to production.
+                I design and build things, 15+ years across agency work, enterprise software, and
+                ecommerce platforms, always at the intersection of design and engineering. My
+                background spans both sides of that line: research and interaction design on one
+                side, React and design systems on the other.
               </p>
               <p>
                 Currently leading web development and digital experience at Liberty Hardware in
-                Winston-Salem, NC. Previously at Fidelity Investments, IBM, MullenLowe, and others —
-                building everything from enterprise design systems to AI-driven interfaces and
-                high-traffic consumer products.
+                Winston-Salem, NC. Previously at Fidelity Investments, IBM, MullenLowe, and others,
+                building enterprise design systems, AI-driven interfaces, and high-traffic consumer
+                products.
               </p>
               <blockquote className="about-quote">
                 "You are where you are today because you stand on somebody's shoulders. And wherever
@@ -186,12 +186,12 @@ export default function App() {
                 we take, but we live forever through what we give."
                 <br />
                 <small style={{ fontFamily: "'DM Mono', monospace", fontSize: '.7rem', letterSpacing: '.1em', textTransform: 'uppercase', opacity: .6 }}>
-                  — Vernon Jordan
+                  Vernon Jordan
                 </small>
               </blockquote>
               <p>
-                When I'm not building, you can find me with my wife and kids — or more likely out
-                paddling my kayak.
+                When I'm not building, I'm with my wife and kids, or more likely out paddling my
+                kayak.
               </p>
             </div>
           </div>
