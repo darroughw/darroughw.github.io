@@ -396,6 +396,19 @@ section { padding:6rem 3rem; }
   letter-spacing:.12em; text-transform:uppercase;
   color:var(--muted-text); margin-top:.4rem;
 }
+.case-images { margin:2rem 0; }
+.case-images-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:1rem;
+}
+.case-images-grid img {
+  width:100%; height:100%; object-fit:cover;
+  border-radius:2px; filter:grayscale(20%);
+}
+.case-images figcaption {
+  font-family:'DM Mono',monospace; font-size:.72rem;
+  color:var(--muted-text); margin-top:.75rem; line-height:1.6;
+}
 
 /* FOOTER */
 footer {

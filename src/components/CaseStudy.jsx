@@ -78,6 +78,18 @@ export default function CaseStudy({ project }) {
                   </div>
                 );
               }
+              if (block.type === 'images') {
+                return (
+                  <figure key={j} className="case-images">
+                    <div className="case-images-grid">
+                      {block.items.map((img, k) => (
+                        <img key={k} src={img.src} alt={img.alt} width={img.width} height={img.height} />
+                      ))}
+                    </div>
+                    {block.caption && <figcaption>{block.caption}</figcaption>}
+                  </figure>
+                );
+              }
               if (block.type === 'stat') {
                 return (
                   <div key={j} className="case-stat-row">
