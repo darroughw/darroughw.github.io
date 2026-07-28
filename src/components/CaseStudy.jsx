@@ -1,15 +1,27 @@
 import { useEffect } from 'react';
+import { projects } from '../data/projects.js';
 
 export default function CaseStudy({ project }) {
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, []);
 
   const { detail } = project;
+  const idx = projects.findIndex(p => p.id === project.id);
+  const prevProject = projects[(idx - 1 + projects.length) % projects.length];
+  const nextProject = projects[(idx + 1) % projects.length];
 
   return (
-    <main className="case-study" id="main">
+    <>
+      <a href="#main" className="skip-link">Skip to main content</a>
       <a className="case-back" href="/">← Back</a>
+      <main className="case-study" id="main">
       <div className="case-hero">
-        <img src={project.imgSrc} alt={project.title} className="case-hero-img" />
+        <img
+          src={project.imgSrc}
+          alt=""
+          width={project.imgW}
+          height={project.imgH}
+          className="case-hero-img"
+        />
         <div className="case-hero-content">
           <p className="case-hero-eyebrow">Case Study · {project.year}</p>
           <h1 className="case-hero-title">{project.title}</h1>
@@ -83,7 +95,7 @@ export default function CaseStudy({ project }) {
                   <figure key={j} className="case-images">
                     <div className="case-images-grid">
                       {block.items.map((img, k) => (
-                        <img key={k} src={img.src} alt={img.alt} width={img.width} height={img.height} />
+                        <img key={k} src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
                       ))}
                     </div>
                     {block.caption && <figcaption>{block.caption}</figcaption>}
@@ -107,6 +119,26 @@ export default function CaseStudy({ project }) {
           </div>
         ))}
       </div>
-    </main>
+
+      <nav className="case-pagination" aria-label="Case study navigation">
+        <a
+          className="case-pagination-link case-pagination-prev"
+          href={`/work/${prevProject.id}/`}
+          aria-label={`Previous case study: ${prevProject.title}`}
+        >
+          <span className="case-pagination-eyebrow">← Previous</span>
+          <span className="case-pagination-title">{prevProject.title}</span>
+        </a>
+        <a
+          className="case-pagination-link case-pagination-next"
+          href={`/work/${nextProject.id}/`}
+          aria-label={`Next case study: ${nextProject.title}`}
+        >
+          <span className="case-pagination-eyebrow">Next →</span>
+          <span className="case-pagination-title">{nextProject.title}</span>
+        </a>
+      </nav>
+      </main>
+    </>
   );
 }

@@ -144,8 +144,10 @@ export default function Resume() {
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, []);
 
   return (
-    <main className="resume-page" id="main">
+    <>
+      <a href="#main" className="skip-link">Skip to main content</a>
       <a className="case-back" href="/">← Back</a>
+      <main className="resume-page" id="main">
 
       <div className="resume-wrap">
 
@@ -158,7 +160,7 @@ export default function Resume() {
           <div className="resume-header-right">
             <a href="mailto:darrough@gmail.com" className="resume-contact-link">darrough@gmail.com</a>
             <a href="https://linkedin.com/in/darroughw" target="_blank" rel="noopener" className="resume-contact-link">linkedin.com/in/darroughw</a>
-            <span className="resume-contact-link">312-391-4663</span>
+            <a href="tel:+13123914663" className="resume-contact-link">312-391-4663</a>
             <span className="resume-contact-link">Winston-Salem, NC</span>
           </div>
         </header>
@@ -249,6 +251,7 @@ export default function Resume() {
         </section>
 
       </div>
-    </main>
+      </main>
+    </>
   );
 }

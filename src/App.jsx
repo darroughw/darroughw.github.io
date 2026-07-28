@@ -119,7 +119,14 @@ export default function App({ route }) {
           {projects.map(p => (
             <a className="work-card" key={p.id} href={`/work/${p.id}/`}>
               <span className="work-card-num">{p.num}</span>
-              <img src={p.imgSrc} alt={p.title} className="work-card-img" />
+              <img
+                src={p.imgSrc}
+                alt={p.title}
+                width={p.imgW}
+                height={p.imgH}
+                loading="lazy"
+                className="work-card-img"
+              />
               <h3 className="work-card-title">{p.title}</h3>
               <p className="work-card-desc">{p.desc}</p>
               <div className="work-card-meta">
@@ -181,7 +188,14 @@ export default function App({ route }) {
               {skills.map((s, i) => (
                 <div className="skill-row" key={s.name}>
                   <span className="skill-name">{s.name}</span>
-                  <div className="skill-bar-wrap">
+                  <div
+                    className="skill-bar-wrap"
+                    role="progressbar"
+                    aria-label={s.name}
+                    aria-valuenow={Math.round(s.w * 100)}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                  >
                     <div className="skill-bar" ref={el => skillBarsRef.current[i] = el} />
                   </div>
                 </div>

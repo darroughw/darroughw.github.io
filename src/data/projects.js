@@ -9,6 +9,8 @@ export const projects = [
     year: '2024–2025',
     tags: ['UX Research', 'Behavioral Analytics', 'Content Strategy', 'Interaction Design', 'Shopify'],
     imgSrc: '/images/delta.jpg',
+    imgW: 1200,
+    imgH: 1200,
     detail: {
       sections: [
         {
@@ -87,6 +89,8 @@ export const projects = [
     year: '2022-23',
     tags: ['Design Systems', 'iOS', 'Figma', 'Component Library', 'UX Leadership'],
     imgSrc: '/images/fidelity.jpg',
+    imgW: 1200,
+    imgH: 655,
     detail: {
       sections: [
         {
@@ -161,6 +165,8 @@ export const projects = [
     year: '2025',
     tags: ['Web Design', 'Design System', 'UX Research', 'Responsive', 'Liquid', 'AIO', 'SEO'],
     imgSrc: '/images/liberty.jpg',
+    imgW: 1200,
+    imgH: 800,
     detail: {
       sections: [
         {
@@ -214,6 +220,8 @@ export const projects = [
     year: '2016',
     tags: ['Mobile Design', 'UX Research', 'Prototyping', 'iOS', 'Live Streaming'],
     imgSrc: '/images/youfit.jpg',
+    imgW: 1200,
+    imgH: 800,
     detail: {
       sections: [
         {
@@ -257,6 +265,8 @@ export const projects = [
     year: '2017',
     tags: ['Campaign Microsite', 'Web Design', 'Data Visualization', 'Contest & Sweepstakes', 'Responsive'],
     imgSrc: '/images/nc-lottery.jpg',
+    imgW: 664,
+    imgH: 401,
     detail: {
       sections: [
         {
@@ -301,6 +311,8 @@ export const projects = [
     year: '2015–2016',
     tags: ['Cause Marketing', 'Interactive Campaign', 'Data Visualization', 'Advertising', 'Nonprofit Partnership'],
     imgSrc: '/images/can-your-lions.jpg',
+    imgW: 1070,
+    imgH: 295,
     detail: {
       sections: [
         {
@@ -348,6 +360,8 @@ export const projects = [
     year: '2016',
     tags: ['Cause Marketing', 'Campaign Microsite', 'UX Design', 'Content Strategy', 'Advertising'],
     imgSrc: '/images/joy-to-the-girl.jpg',
+    imgW: 1200,
+    imgH: 675,
     detail: {
       sections: [
         {
