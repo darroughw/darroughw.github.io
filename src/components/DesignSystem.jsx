@@ -1,8 +1,26 @@
 import { useEffect } from 'react';
-import { projects } from '../data/projects.js';
 import { colorTokens, spacingTokens, typeSpecimens } from '../data/design-tokens.js';
 
-const cardDemo = projects[0];
+const PLACEHOLDER_IMG = `data:image/svg+xml,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">'
+  + '<rect width="800" height="800" fill="#F0D5C5"/>'
+  + '<circle cx="560" cy="240" r="260" fill="#C85A2A"/>'
+  + '<rect x="60" y="460" width="500" height="220" fill="none" stroke="#1A1714" stroke-width="6"/>'
+  + '<line x1="60" y1="680" x2="740" y2="680" stroke="#1A1714" stroke-width="6"/>'
+  + '</svg>'
+)}`;
+
+const cardDemo = {
+  num: '000',
+  title: 'Case Study Title',
+  desc: 'A one- or two-sentence summary describing the problem, the approach, and the measurable outcome.',
+  role: 'Role / Discipline',
+  year: 'Year',
+  tags: ['Tag One', 'Tag Two', 'Tag Three'],
+  imgSrc: PLACEHOLDER_IMG,
+  imgW: 800,
+  imgH: 800,
+};
 
 export default function DesignSystem() {
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, []);
@@ -107,37 +125,37 @@ export default function DesignSystem() {
             <h2 className="ds-section-title">Tags &amp; Badges</h2>
             <p className="ds-section-desc">Uppercase DM Mono at small sizes, used for case study tags and résumé recognition badges.</p>
             <div className="ds-demo-row">
-              <span className="tag">UX Research</span>
-              <span className="tag">Design Systems</span>
-              <span className="tag">Figma</span>
-              <span className="resume-badge">★ Outstanding Achievement</span>
+              <span className="tag">Tag One</span>
+              <span className="tag">Tag Two</span>
+              <span className="tag">Tag Three</span>
+              <span className="resume-badge">★ Recognition</span>
             </div>
           </section>
 
           <section className="ds-section" id="stats" style={{ scrollMarginTop: '2rem' }}>
             <h2 className="ds-section-title">Stat Blocks</h2>
-            <p className="ds-section-desc">Used in case studies to call out measurable outcomes. Real numbers from the Delta Shower Doors case study.</p>
+            <p className="ds-section-desc">Used in case studies to call out measurable outcomes, paired with a short label.</p>
             <div className="case-stat-row">
               <div className="case-stat">
-                <div className="case-stat-num">92%</div>
-                <div className="case-stat-label">Drop in installation searches</div>
+                <div className="case-stat-num">42%</div>
+                <div className="case-stat-label">Placeholder Metric Label</div>
               </div>
               <div className="case-stat">
-                <div className="case-stat-num">6×</div>
-                <div className="case-stat-label">Traffic growth over period</div>
+                <div className="case-stat-num">3.1×</div>
+                <div className="case-stat-label">Placeholder Metric Label</div>
               </div>
             </div>
           </section>
 
           <section className="ds-section" id="cards" style={{ scrollMarginTop: '2rem' }}>
             <h2 className="ds-section-title">Cards</h2>
-            <p className="ds-section-desc">The homepage work grid's card, rendered here with its real data and a live link to the case study.</p>
+            <p className="ds-section-desc">The homepage work grid's card component, shown here with placeholder content in place of a real case study.</p>
             <div className="ds-card-demo">
-              <a className="work-card" href={`/work/${cardDemo.id}/`}>
+              <a className="work-card" href="#cards">
                 <span className="work-card-num">{cardDemo.num}</span>
                 <img
                   src={cardDemo.imgSrc}
-                  alt={cardDemo.title}
+                  alt=""
                   width={cardDemo.imgW}
                   height={cardDemo.imgH}
                   loading="lazy"
@@ -153,7 +171,7 @@ export default function DesignSystem() {
                 <div className="work-card-tags">
                   {cardDemo.tags.map(t => <span className="tag" key={t}>{t}</span>)}
                 </div>
-                <span className="work-card-link">View case study →</span>
+                <span className="work-card-link">View details →</span>
               </a>
             </div>
           </section>

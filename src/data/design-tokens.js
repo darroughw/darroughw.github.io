@@ -25,9 +25,9 @@ export const spacingTokens = [
 ];
 
 export const typeSpecimens = [
-  { name: 'Hero Headline', family: "'Playfair Display', serif", weight: 700, size: 'clamp(2.8rem, 5.5vw, 5rem)', sample: 'Crafting Digital', usage: 'H1 — homepage hero only' },
-  { name: 'Section Title', family: "'Playfair Display', serif", weight: 400, size: 'clamp(2rem, 3.5vw, 3rem)', sample: 'Selected Work', usage: 'H2 — section and case-study headings' },
-  { name: 'Case Subheading', family: "'Playfair Display', serif", weight: 400, style: 'italic', size: '1.2rem', sample: 'Progressive Disclosure', usage: 'H3 — subheadings inside case study bodies' },
-  { name: 'Body', family: "'DM Sans', sans-serif", weight: 300, size: '1rem', sample: 'Designed and built the iOS component library in Figma from the ground up.', usage: 'Paragraph copy' },
-  { name: 'Eyebrow / Label', family: "'DM Mono', monospace", weight: 400, size: '.72rem', letterSpacing: '.18em', uppercase: true, sample: 'Case Study · 2025', usage: 'Uppercase labels, meta rows, nav links, tags' },
+  { name: 'Hero Headline', family: "'Playfair Display', serif", weight: 700, size: 'clamp(2.8rem, 5.5vw, 5rem)', sample: 'Display Headline', usage: 'H1 — homepage hero only' },
+  { name: 'Section Title', family: "'Playfair Display', serif", weight: 400, size: 'clamp(2rem, 3.5vw, 3rem)', sample: 'Section Heading', usage: 'H2 — section and case-study headings' },
+  { name: 'Case Subheading', family: "'Playfair Display', serif", weight: 400, style: 'italic', size: '1.2rem', sample: 'A Subheading Example', usage: 'H3 — subheadings inside case study bodies' },
+  { name: 'Body', family: "'DM Sans', sans-serif", weight: 300, size: '1rem', sample: 'Body copy renders here to show line height, measure, and color at actual reading size.', usage: 'Paragraph copy' },
+  { name: 'Eyebrow / Label', family: "'DM Mono', monospace", weight: 400, size: '.72rem', letterSpacing: '.18em', uppercase: true, sample: 'Uppercase Label', usage: 'Uppercase labels, meta rows, nav links, tags' },
 ];
