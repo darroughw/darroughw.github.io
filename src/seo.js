@@ -25,6 +25,16 @@ export function getRouteMeta(route) {
     };
   }
 
+  if (route.type === 'design-system') {
+    return {
+      title: `Design System — ${SITE_NAME}`,
+      description: `The design tokens, typography, and components behind ${SITE_NAME}'s site: colors, type scale, spacing, and UI patterns documented live from the production CSS.`,
+      path: '/design-system/',
+      image: `${SITE_URL}/og-image.png`,
+      type: 'website',
+    };
+  }
+
   return {
     title: `${SITE_NAME} — UX/UI Designer & Front-End Engineer`,
     description: HOME_DESCRIPTION,

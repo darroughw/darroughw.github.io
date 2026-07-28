@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import CaseStudy from './components/CaseStudy';
 import Resume from './components/Resume';
+import DesignSystem from './components/DesignSystem';
 import { projects, skills } from './data/projects';
 
 const MARQUEE_ITEMS = [
@@ -52,6 +53,10 @@ export default function App({ route }) {
     return <Resume />;
   }
 
+  if (route.type === 'design-system') {
+    return <DesignSystem />;
+  }
+
   return (
     <>
       <a href="#main" className="skip-link">Skip to main content</a>
@@ -74,6 +79,7 @@ export default function App({ route }) {
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="https://github.com/darroughw" target="_blank" rel="noopener">GitHub ↗<span className="sr-only"> (opens in new tab)</span></a></li>
+          <li><a href="/design-system/">Design System</a></li>
           <li><a className="nav-resume-btn" href="/resume/">Résumé</a></li>
         </ul>
       </nav>
