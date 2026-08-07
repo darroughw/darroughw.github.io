@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1A1714" />
+
+    <title>Agent Status Console: Designing Trust Into AI Output — Darrough West</title>
+    <meta name="description" content="A self-directed exploration of what an interface owes a user when an AI agent is doing work they can't watch happen: legible confidence, honest failure states, and real control." />
+    <link rel="canonical" href="https://darroughw.github.io/work/agent-console/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Darrough West" />
+    <meta property="og:title" content="Agent Status Console: Designing Trust Into AI Output — Darrough West" />
+    <meta property="og:description" content="A self-directed exploration of what an interface owes a user when an AI agent is doing work they can't watch happen: legible confidence, honest failure states, and real control." />
+    <meta property="og:url" content="https://darroughw.github.io/work/agent-console/" />
+    <meta property="og:image" content="https://darroughw.github.io/og/agent-console.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agent Status Console: Designing Trust Into AI Output — Darrough West" />
+    <meta name="twitter:description" content="A self-directed exploration of what an interface owes a user when an AI agent is doing work they can't watch happen: legible confidence, honest failure states, and real control." />
+    <meta name="twitter:image" content="https://darroughw.github.io/og/agent-console.png" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Darrough West","url":"https://darroughw.github.io/","jobTitle":"UX/UI Designer & Front-End Engineer","email":"mailto:darrough@gmail.com","sameAs":["https://linkedin.com/in/darroughw","https://github.com/darroughw"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Agent Status Console: Designing Trust Into AI Output","description":"A self-directed exploration of what an interface owes a user when an AI agent is doing work they can't watch happen: legible confidence, honest failure states, and real control.","url":"https://darroughw.github.io/work/agent-console/","creator":{"@type":"Person","name":"Darrough West"},"datePublished":"2026"}</script>
+
+    <script>
+      (function () {
+        var m = /^#\/work\/([^/]+)\/?$/.exec(location.hash);
+        if (m) { location.replace('/work/' + m[1] + '/' + location.search); return; }
+        if (/^#\/resume\/?$/.test(location.hash)) { location.replace('/resume/' + location.search); }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-C5jKqb1R.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C1hZhiqD.css">
+  </head>
+  <body>
+    <div id="root"><a href="#main" class="skip-link">Skip to main content</a><a class="case-back" href="/">← Back</a><main class="case-study" id="main"><div class="case-hero"><img src="/images/agent-console.png" alt="" width="2606" height="1262" class="case-hero-img"/><div class="case-hero-content"><p class="case-hero-eyebrow">Case Study · <!-- -->2026</p><h1 class="case-hero-title">Agent Status Console: Designing Trust Into AI Output</h1><div class="case-meta"><span>Role: <!-- -->Design &amp; Engineering (self-directed)</span><span>Year: <!-- -->2026</span><span>Tools: <!-- -->Next.js, TypeScript, Storybook</span></div></div></div><div class="case-body"><div class="case-tags"><span class="tag">AI/Agent UX</span><span class="tag">Design Systems</span><span class="tag">Accessibility</span><span class="tag">TypeScript</span><span class="tag">Prototyping</span></div><div><h2>Overview</h2><p>Most AI-agent interfaces are designed for the happy path: a prompt goes in, a clean answer comes out. This project starts from a harder question: when an agent is doing work you can&#x27;t watch happen minute by minute, what does the interface owe you so you still feel in control? I built a status console for a small fleet of background agents (health monitoring, warranty reconciliation, device provisioning, support triage) as a self-directed exploration of that question, in working code rather than a mockup.</p></div><div><h2>The Problem</h2><h3 class="case-subheading">One confidence score doesn&#x27;t give you anything to reason with.</h3><p>Most AI tools that surface a confidence score show a single number: 72% confident. Confident about what, exactly? Whether the facts are right? Whether the answer is complete? Whether the source was any good? A single blended number asks you to trust the system&#x27;s judgment about its own judgment, with no vocabulary for questioning it.</p><h3 class="case-subheading">Collapsing &quot;uncertain&quot; and &quot;broken&quot; into one error state teaches people to distrust the system.</h3><p>The easy engineering move is two states: it worked, or it didn&#x27;t. But a result that&#x27;s 58% confident and flagged for human review is a different situation than an upstream API timing out. Treating them the same trains users to distrust the agent even in the common case where it&#x27;s still doing something useful, it just needs a second pair of eyes.</p></div><div><h2>What I Did</h2><h3 class="case-subheading">Confidence, broken into dimensions</h3><p>The confidence indicator scores accuracy, completeness, and source quality separately instead of blending them into one number. That&#x27;s a UX decision about what vocabulary you give someone to reason about AI output, not a progress-bar detail: &quot;I&#x27;m not sure this is complete&quot; and &quot;I&#x27;m not sure this is accurate&quot; call for different next actions.</p><h3 class="case-subheading">Five states, not two</h3><p>Every agent renders as one of five distinct states: idle, running, queued, needs-review, or error. Distinguishing needs-review from error was the deliberate part: a low-confidence result is a different trust situation than a failure, and collapsing them into one &quot;something&#x27;s wrong&quot; treatment would erode more trust than necessary.</p><h3 class="case-subheading">Streaming output, and the same anxiety for screen reader users</h3><p>Agent output renders token by token with a live cursor, because a blank loading state during a real processing gap reads as broken, not thinking. The output region is also <code>aria-live="polite"</code>: a screen reader user has the same "is this still working?" anxiety a sighted user does watching a cursor blink, and the interface owes them the same signal.</p><h3 class="case-subheading">A stop button wired to real cancellation</h3><p>Start, Stop, and Reset are wired to genuine cancellation, not just hidden UI. The principle: any AI action with a duration needs an exit, so the system never feels like it&#x27;s running without the human&#x27;s consent.</p><figure class="case-images"><div class="case-images-grid"><img src="/images/agent-console.png" alt="The agent status console showing four agents in different states (running, needs review, queued, error), a live output panel with Start/Stop/Reset controls, and a task queue" width="2606" height="1262" loading="lazy"/></div><figcaption>All five states are visible at once in normal use: Fleet Health Monitor running, Warranty Reconciliation needs review with its confidence note, Provisioning Assistant queued, and Support Ticket Triage in error with the actual failure reason surfaced.</figcaption></figure></div><div><h2>Built as a System, Not a Screen</h2><p>Each component&#x27;s Storybook file documents all five states (idle, running, queued, needs-review, error) as explicit, reusable variants rather than one-off screens. That&#x27;s what lets a team ship consistent AI-status treatment across a product instead of every screen inventing its own rules for what &quot;uncertain&quot; looks like.</p></div><div><h2>What&#x27;s Still Open</h2><p>There&#x27;s no agent-detail panel yet, and no visualized task-completion history. The next design problem is what a user does after they&#x27;ve decided to trust or distrust an agent, and this version doesn&#x27;t answer that yet. It was built in close collaboration with Claude: working code, not a spec handed to someone else to build.</p></div></div><nav class="case-pagination" aria-label="Case study navigation"><a class="case-pagination-link case-pagination-prev" href="/work/joy-to-the-girl/" aria-label="Previous case study: Joy to the Girl: ULTA Beauty Holiday Pay-It-Forward Campaign"><span class="case-pagination-eyebrow">← Previous</span><span class="case-pagination-title">Joy to the Girl: ULTA Beauty Holiday Pay-It-Forward Campaign</span></a><a class="case-pagination-link case-pagination-next" href="/work/fintech-dashboard/" aria-label="Next case study: Fintech Transaction Dashboard: Verifying an AI-Directed Build"><span class="case-pagination-eyebrow">Next →</span><span class="case-pagination-title">Fintech Transaction Dashboard: Verifying an AI-Directed Build</span></a></nav></main></div>
+  </body>
+</html>
