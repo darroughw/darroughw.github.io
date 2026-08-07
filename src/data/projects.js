@@ -400,6 +400,247 @@ export const projects = [
       ],
     },
   },
+  {
+    id: 'agent-console',
+    num: '008',
+    title: 'Agent Status Console: Designing Trust Into AI Output',
+    desc: `A self-directed exploration of what an interface owes a user when an AI agent is doing work they can't watch happen: legible confidence, honest failure states, and real control.`,
+    role: 'Design & Engineering (self-directed)',
+    tools: 'Next.js, TypeScript, Storybook',
+    year: '2026',
+    tags: ['AI/Agent UX', 'Design Systems', 'Accessibility', 'TypeScript', 'Prototyping'],
+    imgSrc: '/images/agent-console.png',
+    imgW: 2606,
+    imgH: 1262,
+    detail: {
+      sections: [
+        {
+          heading: 'Overview',
+          body: [
+            { type: 'paragraph', text: `Most AI-agent interfaces are designed for the happy path: a prompt goes in, a clean answer comes out. This project starts from a harder question: when an agent is doing work you can't watch happen minute by minute, what does the interface owe you so you still feel in control? I built a status console for a small fleet of background agents (health monitoring, warranty reconciliation, device provisioning, support triage) as a self-directed exploration of that question, in working code rather than a mockup.` },
+          ],
+        },
+        {
+          heading: 'The Problem',
+          body: [
+            { type: 'subheading', text: "One confidence score doesn't give you anything to reason with." },
+            { type: 'paragraph', text: `Most AI tools that surface a confidence score show a single number: 72% confident. Confident about what, exactly? Whether the facts are right? Whether the answer is complete? Whether the source was any good? A single blended number asks you to trust the system's judgment about its own judgment, with no vocabulary for questioning it.` },
+            { type: 'subheading', text: 'Collapsing "uncertain" and "broken" into one error state teaches people to distrust the system.' },
+            { type: 'paragraph', text: `The easy engineering move is two states: it worked, or it didn't. But a result that's 58% confident and flagged for human review is a different situation than an upstream API timing out. Treating them the same trains users to distrust the agent even in the common case where it's still doing something useful, it just needs a second pair of eyes.` },
+          ],
+        },
+        {
+          heading: 'What I Did',
+          body: [
+            { type: 'subheading', text: 'Confidence, broken into dimensions' },
+            { type: 'paragraph', text: `The confidence indicator scores accuracy, completeness, and source quality separately instead of blending them into one number. That's a UX decision about what vocabulary you give someone to reason about AI output, not a progress-bar detail: "I'm not sure this is complete" and "I'm not sure this is accurate" call for different next actions.` },
+            { type: 'subheading', text: 'Five states, not two' },
+            { type: 'paragraph', text: `Every agent renders as one of five distinct states: idle, running, queued, needs-review, or error. Distinguishing needs-review from error was the deliberate part: a low-confidence result is a different trust situation than a failure, and collapsing them into one "something's wrong" treatment would erode more trust than necessary.` },
+            { type: 'subheading', text: 'Streaming output, and the same anxiety for screen reader users' },
+            { type: 'paragraph', text: `Agent output renders token by token with a live cursor, because a blank loading state during a real processing gap reads as broken, not thinking. The output region is also <code>aria-live="polite"</code>: a screen reader user has the same "is this still working?" anxiety a sighted user does watching a cursor blink, and the interface owes them the same signal.` },
+            { type: 'subheading', text: 'A stop button wired to real cancellation' },
+            { type: 'paragraph', text: `Start, Stop, and Reset are wired to genuine cancellation, not just hidden UI. The principle: any AI action with a duration needs an exit, so the system never feels like it's running without the human's consent.` },
+            { type: 'images', items: [
+              { src: '/images/agent-console.png', alt: 'The agent status console showing four agents in different states (running, needs review, queued, error), a live output panel with Start/Stop/Reset controls, and a task queue', width: 2606, height: 1262 },
+            ], caption: 'All five states are visible at once in normal use: Fleet Health Monitor running, Warranty Reconciliation needs review with its confidence note, Provisioning Assistant queued, and Support Ticket Triage in error with the actual failure reason surfaced.' },
+          ],
+        },
+        {
+          heading: 'Built as a System, Not a Screen',
+          body: [
+            { type: 'paragraph', text: `Each component's Storybook file documents all five states (idle, running, queued, needs-review, error) as explicit, reusable variants rather than one-off screens. That's what lets a team ship consistent AI-status treatment across a product instead of every screen inventing its own rules for what "uncertain" looks like.` },
+          ],
+        },
+        {
+          heading: "What's Still Open",
+          body: [
+            { type: 'paragraph', text: `There's no agent-detail panel yet, and no visualized task-completion history. The next design problem is what a user does after they've decided to trust or distrust an agent, and this version doesn't answer that yet. It was built in close collaboration with Claude: working code, not a spec handed to someone else to build.` },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'fintech-dashboard',
+    num: '009',
+    title: 'Fintech Transaction Dashboard: Verifying an AI-Directed Build',
+    desc: 'A dense, filterable transaction table and balance-over-time chart, built end to end with Claude Code and put through a real accessibility and testing pass instead of just looking finished on the first screenshot.',
+    role: 'Design & Engineering (self-directed)',
+    tools: 'Next.js, TypeScript, SCSS Modules, Recharts, Vitest, React Testing Library',
+    year: '2026',
+    tags: ['AI/Agent UX', 'Data Visualization', 'Accessibility', 'TypeScript', 'Testing'],
+    imgSrc: '/images/fintech-dashboard.png',
+    imgW: 2880,
+    imgH: 2614,
+    detail: {
+      sections: [
+        {
+          heading: 'Overview',
+          body: [
+            { type: 'paragraph', text: `Most AI-generated dashboards look the same: dark background, one neon accent, a chart library's default colors bolted onto the page. I wanted to test something specific: can an AI-directed build, Claude Code end to end, with me setting the requirements and verifying every claim, produce a dashboard with an actual point of view, one that holds up under a real accessibility and testing pass instead of just looking finished on the first screenshot.` },
+            { type: 'paragraph', text: `The target was a transaction history dashboard: a dense, sortable, filterable table and a balance-over-time chart. Those two components show up in every fintech product, and they're the two hardest things to make both usable and distinctive.` },
+          ],
+        },
+        {
+          heading: 'What It Is',
+          body: [
+            { type: 'paragraph', text: `100 transactions, each carrying a running balance. The table sorts on five columns, filters by date range and category, paginates at 10, 25, or 50 rows, and collapses to a card layout below 640px instead of squeezing a table onto a phone screen. The chart is a 30/90/365-day area chart with a tooltip that shows the exact date and balance on hover, styled entirely from the app's own CSS custom properties. Not one color came from Recharts' defaults.` },
+            { type: 'paragraph', text: `The type stack, Archivo, Archivo Black, Space Mono, comes from an existing Storybook design system. I built the color palette out from there: a teal accent instead of the default fintech blue or green, tabular Space Mono for every number in the interface, status badges styled like stamped ledger seals instead of Bootstrap pills. Small decisions, but they're the difference between a dashboard that looks like every other dashboard and one that looks like it belongs to this product.` },
+            { type: 'images', items: [
+              { src: '/images/fintech-dashboard-chart-dark.png', alt: 'The balance-over-time chart in dark mode, with a tooltip showing a Rocket Mortgage payment of $7,541.82 on July 13', width: 2880, height: 1440 },
+              { src: '/images/fintech-dashboard-table-dark.png', alt: 'The transactions table in dark mode, sorted by amount descending, showing payroll deposits and a 401k contribution', width: 2880, height: 1440 },
+            ], caption: "The chart's hover tooltip and the transactions table sorted by amount, both in the app's dark theme — every color here comes from a CSS custom property, none from Recharts' defaults." },
+            { type: 'paragraph', text: `See it live at <a href="https://dwest.foo/fintech" target="_blank" rel="noopener">dwest.foo/fintech</a>.` },
+          ],
+        },
+        {
+          heading: 'Where It Got Interesting: Accessibility',
+          body: [
+            { type: 'paragraph', text: `Running a full accessibility pass instead of assuming the design looked accessible turned up real problems.` },
+            { type: 'subheading', text: 'Status badges: contrast computed, not eyeballed' },
+            { type: 'paragraph', text: `Computing actual WCAG contrast ratios, not eyeballing them, showed the "cleared" status badge at 4.26:1 against its own tinted background and "pending" at 4.06:1. Both sit under the 4.5:1 minimum for normal text. Darkening both colors, success from <code>#2f7d5c</code> to <code>#256149</code>, warning from <code>#9a6b00</code> to <code>#8a5f00</code>, brought them to 6.07:1 and 4.67:1 without changing what they read as.` },
+            { type: 'subheading', text: 'Borders that looked fine and measured at 1.3:1' },
+            { type: 'paragraph', text: `Borders were worse: 1.3:1 against their backgrounds, where WCAG 1.4.11 requires 3:1 for interactive boundaries. Rather than darkening every hairline in the UI and losing the intentionally subtle divider style, I added a second token, <code>--color-border-strong</code>, used only on inputs, buttons, and toggles: the places a user actually needs to see a boundary to operate the control.` },
+            { type: 'subheading', text: "A focusable, hidden chart: the bug you can't catch by looking" },
+            { type: 'paragraph', text: `The most interesting bug: Recharts v3 auto-enables a keyboard-focusable accessibility layer on the chart SVG. I'd wrapped that same SVG in <code>aria-hidden="true"</code> because I was providing a separate text summary for screen readers instead of exposing ninety individually-announced data points. Focusable but hidden from the accessibility tree is a real WCAG violation, not a style nitpick. Setting <code>accessibilityLayer={false}</code> on the chart fixed it, once a keyboard tab-order trace surfaced the problem in the first place. That's not a bug you catch by looking at the screen.` },
+            { type: 'stat', items: [
+              { value: '6.07:1', label: 'Cleared badge contrast, up from a failing 4.26:1' },
+              { value: '4.67:1', label: 'Pending badge contrast, up from a failing 4.06:1' },
+              { value: '3:1', label: 'WCAG 1.4.11 minimum for interactive borders, up from 1.3:1' },
+            ]},
+          ],
+        },
+        {
+          heading: 'Testing',
+          body: [
+            { type: 'paragraph', text: `19 tests, Vitest and React Testing Library, covering sorting, filtering, pagination, and all three load states, loading, error, empty, across both components. The tests query by role and label, not CSS class: the way a screen reader or a keyboard user actually navigates the page.` },
+            { type: 'paragraph', text: `Two infrastructure problems surfaced before the tests were trustworthy at all. Recharts needs a real <code>ResizeObserver</code> and non-zero element dimensions to lay out an SVG, and jsdom provides neither, so I stubbed both in test setup. And without an explicit <code>afterEach(cleanup)</code>, DOM from one test leaked into the next, producing "multiple elements found" failures that had nothing to do with the components and everything to do with the test harness.` },
+          ],
+        },
+        {
+          heading: 'Responsive & Deploy',
+          body: [
+            { type: 'paragraph', text: `The layout held at 375, 768, and 1024px, checked against a real headless Chrome instance rather than a resized browser window: zero horizontal overflow at any width, the table-to-card breakpoint firing exactly at 640px, every touch target on the mobile layout measuring 44px or larger. The one deliberate exception is documented, not hidden: desktop sort buttons run 33px tall for information density, since the touch-friendly control at that breakpoint is a 44px "Sort by" select, not those buttons.` },
+            { type: 'images', items: [
+              { src: '/images/fintech-dashboard-tablet-dark.png', alt: 'The dashboard at a narrower tablet width in dark mode, chart and transactions table stacked in a single column', width: 1536, height: 2676 },
+            ], caption: 'The chart and table stacked into a single column at a narrower width, well above the 640px table-to-card breakpoint.' },
+            { type: 'paragraph', text: `From there it went to Vercel. Later I reconfigured <code>basePath</code> and <code>assetPrefix</code> to run under a subpath instead of domain root, a change I verified against an actual production build and server before redeploying rather than trusting the config would just work.` },
+          ],
+        },
+        {
+          heading: 'What This Demonstrates',
+          body: [
+            { type: 'paragraph', text: `Not "AI can build a dashboard." Any tool produces something that looks finished. The actual claim: directing an AI build well enough to catch a WCAG violation that isn't visible on screen, compute contrast ratios instead of eyeballing them, and verify every claim, responsive, accessible, tested, against real headless-browser output instead of trusting the code that generated it, is a skill. That's the workflow I run daily now. This dashboard is the proof, not the pitch.` },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'timewarp-trivia',
+    num: '010',
+    title: 'TimeWarp Trivia: Realtime Party Trivia, Built Solo',
+    desc: 'A four-decade, Jackbox-style trivia game built solo in about 27 hours: one shared TV screen, up to ten phones as buzzers, and a design-token system that reskins the whole app by decade without touching a single component.',
+    role: 'Product, Design & Engineering (solo)',
+    tools: 'Next.js 14, TypeScript, Supabase (Postgres + Realtime), SCSS, Vercel',
+    year: '2026',
+    tags: ['Full-Stack Engineering', 'Realtime', 'Game Design', 'Design Systems', 'TypeScript'],
+    imgSrc: '/images/timewarp-trivia-scoreboard.png',
+    imgW: 1920,
+    imgH: 1080,
+    detail: {
+      sections: [
+        {
+          heading: 'Overview',
+          body: [
+            { type: 'paragraph', text: `TimeWarp Trivia is a Jackbox-style party trivia game: one shared screen for the room, everyone else's phone as the buzzer. Built solo, product through full-stack, in about 27 hours across two days. It's live and playable in-browser at <a href="https://www.timewarptrivia.com" target="_blank" rel="noopener">timewarptrivia.com</a>, with 728 questions across four decades and 18 shipped feature/fix issues tracked in Linear.` },
+            { type: 'paragraph', text: `Party trivia games like Jackbox split the experience across two kinds of screens: one shared display everyone in the room looks at, and private controllers everyone holds. That split is the whole game: the shared screen can't show private information (like which answer you picked), and the private screen can't show the room's full state (like who's winning). Getting that split right, over a real network, for up to ten players at once, was the actual engineering problem. The trivia content is the theme; the sync model is the product.` },
+            { type: 'paragraph', text: `The decade angle, 80s through 2010s, gave the content a natural filter and, later, a natural hook for visual theming.` },
+            { type: 'stat', items: [
+              { value: '~27 hrs', label: 'From first commit to live, solo' },
+              { value: '728', label: 'Trivia questions across four decades' },
+              { value: '10', label: 'Max players per room, phone only, no app' },
+            ]},
+          ],
+        },
+        {
+          heading: 'How It Works',
+          body: [
+            { type: 'bullets', items: [
+              'Host opens the shared screen and gets a 4-character room code.',
+              'Up to 10 players join from their phones with the code and a name. No app, no download.',
+              'Host picks a decade filter (or all four) and starts the game.',
+              '3 rounds of 5 questions each, speed-based scoring (1000 points decaying to 500 over the time limit).',
+              "Before the final round, whoever's in last place picks one question to answer alone. Everyone else just watches.",
+              'Final round pays double points.',
+              'Ranked leaderboard and podium at the end.',
+            ]},
+            { type: 'images', items: [
+              { src: '/images/timewarp-trivia.png', alt: 'The TimeWarp Trivia landing page, with a decade filter strip for the 80s through 2010s and Host a Game / Join a Game buttons', width: 1920, height: 1572 },
+              { src: '/images/timewarp-trivia-lobby.png', alt: 'The shared TV lobby screen showing a room code and four joined players, each with their own colored avatar', width: 1920, height: 1080 },
+              { src: '/images/timewarp-trivia-podium.png', alt: 'The final results podium on the shared screen, ranking all four players by final score', width: 1920, height: 1080 },
+            ], caption: "The shared-screen side of the game: the landing page's decade filter, a populated lobby waiting on the host to start, and the final podium." },
+          ],
+        },
+        {
+          heading: 'Architecture',
+          body: [
+            { type: 'subheading', text: 'Realtime sync' },
+            { type: 'paragraph', text: `One Supabase Realtime channel per room. The TV is the authoritative host: it's the only client that ever advances round state, writes the current question, or ends the game. Phones subscribe to that same row for question/timer state and write their own answers directly to an <code>answers</code> table. Scoring happens client-side on the phone that answered, which is a deliberate scope cut, documented as a known limitation, rather than an oversight. A fully server-validated version would need an edge function or RPC in front of every score write.` },
+            { type: 'subheading', text: 'Data-driven content' },
+            { type: 'paragraph', text: `Decades and categories are rows in their own tables, not hardcoded enums. A category like "Internet Memes" gates itself to 2000s-and-later decades via a nullable <code>min_decade_id</code> foreign key. Adding a new decade or category is a data change, not a deploy.` },
+            { type: 'subheading', text: 'Design system reuse' },
+            { type: 'paragraph', text: `Every color, type scale, and spacing value is mirrored from an existing personal design system rather than invented fresh for this project, to prove the same token system holds up across a third, very different surface: a 10-foot TV UI and a touch-first phone UI, instead of a typical web app.` },
+          ],
+        },
+        {
+          heading: 'Technical Highlights',
+          body: [
+            { type: 'paragraph', text: `A few problems along the way were worth solving properly rather than papering over.` },
+            { type: 'subheading', text: 'A CSS animation was quietly burning CPU on every screen, forever' },
+            { type: 'paragraph', text: `A user reported their fan spinning up just from having the site open. Chrome performance traces showed roughly 2.2% sustained main-thread cost on an otherwise idle page: not JavaScript, paint. The ambient scanline overlay, a decorative CRT-style texture on every screen, animated <code>background-position</code> in an infinite loop, which forces a full repaint every frame indefinitely. Switching the same visual effect to animate <code>transform</code> instead, a compositor-only property, dropped that cost to roughly 0.09%, measured before and after with the same trace. Same look, no repaint.` },
+            { type: 'stat', items: [
+              { value: '2.2%', label: 'Sustained main-thread cost before the fix' },
+              { value: '0.09%', label: 'Same trace, after background-position → transform' },
+            ]},
+            { type: 'subheading', text: 'Decade-based visual theming, built to cascade without touching components' },
+            { type: 'paragraph', text: `The spec called for the visual theme to shift once a decade's picked, without a rewrite of every screen. The trick: SCSS variables can hold a <code>var()</code> CSS function as their value. Changing <code>$marigold: #ffb238;</code> to <code>$marigold: var(--marigold, #ffb238);</code> means every existing component that already referenced <code>$marigold</code> compiles to <code>var(--marigold, #ffb238)</code> automatically. No component file touched. A single override block, <code>[data-decade-theme="80s"] { --marigold: #ff3fa4; ... }</code>, driven by a small hook then re-themes the entire app the moment a decade's selected, TV and phone both, session-wide.` },
+            { type: 'images', items: [
+              { src: '/images/timewarp-trivia-phone-80s-waiting.png', alt: "A player's phone in the 80s decade theme, showing a magenta and gold diagonal-stripe background while waiting for the host to start", width: 390, height: 844 },
+              { src: '/images/timewarp-trivia-phone-80s-question.png', alt: "A trivia question on a player's phone in the 80s decade theme, still carrying the same diagonal-stripe background", width: 390, height: 844 },
+            ], caption: "The 80s decade theme applied session-wide on a player's phone, from the waiting screen through an active question, with zero changes to either component." },
+            { type: 'subheading', text: 'Diagnosing a silent analytics gap' },
+            { type: 'paragraph', text: `Vercel Analytics showed roughly 20 pageviews; PostHog showed 1. Both were correctly configured with valid tokens in the right environments. The actual bug was a malformed <code>POSTHOG_HOST</code> value that wasn't a valid absolute URL, so the browser resolved every PostHog request as relative to the app's own origin instead of PostHog's servers, 404ing silently in the background. Confirmed via the dev server's own request logs before touching any config.` },
+            { type: 'subheading', text: 'Small-screen gating to prevent orphaned game state' },
+            { type: 'paragraph', text: `The host screen is a 10-foot UI meant for a TV or laptop. Without a check, a phone visitor landing on <code>/host</code> would silently create a real, unusable game room. A <code>matchMedia</code>-based hook gates the real game behind a simple "use a bigger screen" screen below a 768px breakpoint, so a stray visit never spins up state nobody can use.` },
+          ],
+        },
+        {
+          heading: 'What Shipped',
+          body: [
+            { type: 'bullets', items: [
+              'Full realtime multiplayer game: lobby, 3-round structure, speed scoring, the block mechanic, podium.',
+              '728 original trivia questions across four decades, sourced and fact-checked, written in a consistent dry/deadpan voice.',
+              'A browser-playable web version (no app install required), the primary way to play today. A packaged Android TV app is a planned next step, not yet built.',
+              'Full observability stack: Vercel Analytics + PostHog for product analytics, Sentry for error/performance tracking, Vercel Speed Insights for Core Web Vitals.',
+              'One working decade theme (80s) proving out the theming architecture end to end.',
+            ]},
+          ],
+        },
+        {
+          heading: "What's Next",
+          body: [
+            { type: 'bullets', items: [
+              '90s, 2000s, and 2010s visual themes, using the same token-override system.',
+              'Packaged Android TV app (WebView or React Native for TV).',
+              'Server-side answer validation.',
+              'Roku and Apple TV ports (stretch goals, after Android TV).',
+            ]},
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export const skills = [
