@@ -545,9 +545,9 @@ export const projects = [
     tools: 'Next.js 14, TypeScript, Supabase (Postgres + Realtime), SCSS, Vercel',
     year: '2026',
     tags: ['Full-Stack Engineering', 'Realtime', 'Game Design', 'Design Systems', 'TypeScript'],
-    imgSrc: '/images/timewarp-trivia-scoreboard.png',
-    imgW: 1920,
-    imgH: 1080,
+    imgSrc: '/images/timewarp-trivia-cover.png',
+    imgW: 1474,
+    imgH: 1292,
     detail: {
       sections: [
         {
